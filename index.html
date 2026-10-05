@@ -5,20 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lynariel">
     <title>Curso de desarrollo web</title>
-    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/layout.css">
 </head>
 <body>
     <header class="page-header">
-        <h1>Curso de programación web<br> de cero a <strong>fullstack</strong></h1>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙<!--☀️--></button>
+        <h1>Curso de programación web<br> de cero a <strong>full stack</strong></h1>
     </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#temas">Temas</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
     <main class="main">
-        <div id="intro">
-            <h2>&nbsp; Introducción al curso</h2>
-        </div>
-        <p>
-            Bienvenidos al curso de desarrollo web donde iremos desde los conceptos más básicos hasta los 
-            más avanzados de este fascinante mundo del desarrollo web.
-        </p>
+        <section id="intro">
+            <h2>Intoducción al curso</h2>
+            <p>
+                Bienvenidos al <strong>Curso de programación web de cero a fullstack</strong>, un viaje intensivo de 
+                <strong>180 días</strong> diseñado para llevarte desde los conceptos más básicos del desarrollo web 
+                la creación y despliege de aplicaciones completas en producción.
+            </p>
+            <p>
+                Este curso está estructurado como un <em>roadmap</em> progresivo: comenzaras dominando el <strong>front end</strong> 
+                con <strong>HTML</strong>,<strong>CSS</strong>  y <strong>JavaScript</strong>, para luego adentrarte en tecnologías 
+                modernas como <strong>React</strong>. Después pasarás al <strong>back end</strong> con <strong>Node.js</strong> y 
+                <strong>Express</strong>, aprenderás a gestionar bases de datos con <strong>MongoDB</strong> y finalmente integraras 
+                todo para construir y desplegar aplicaciones <strong>MERN</strong> reales.
+            </p>
+            <p>
+                A lo largo del camino no solo aprenderás sintaxis y conceptos: también desarrollarás <strong>proyectos prácticos</strong> en cada 
+                etapa (portafolio, app del clima, blog, APIs REST, dashboard, e-commerce, etc.), resolveras <strong>problemas de lógica</strong> y 
+                dominaras herramientas profesionales como <strong>Git</strong>, <strong>GitHub</strong>, <strong>Postman</strong> y plataformas de 
+                despliegue como <strong>Vercel</strong> y <strong>Render</strong>.
+            </p>
+            <p>
+                Al finalizar los 180 días, contaras con un <strong>portafolio sólido</strong>, experiencia real construyendo aplicaciones full stack 
+                y la confianza necesaria para enfrentarte al mundo laboral como desarrollador web.
+            </p>
+            <p>
+                <strong>¿Listo para empezar?</strong> Consulta el <a href="roadmap.html">roadmap completo de 180 días</a> y comienza tu transformación 
+                de cero a full stack.
+            </p>
+        </section>
     </main>
+    <script src="scripts/themes.js"></script>
 </body>
 </html>
