@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Full Stack - 180 Días</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #f0db4f; /* Amarillo JS */
+            --accent-hover: #e3c92e;
+            --border-color: #30363d;
+            --completed-color: #238636;
+            --completed-text: #8b949e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+        }
+
+        .progress-container {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .progress-bar-bg {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #21262d;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background-color: var(--completed-color);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-weight: bold;
+            color: #fff;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .module {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .module-header {
+            background-color: #1f242c;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .module-header:hover {
+            background-color: #2a3038;
+        }
+
+        .module-header .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+
+        .module-header.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .module-content {
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .module-content.collapsed {
+            display: none;
+        }
+
+        .task {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px solid #21262d;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .task:last-child {
+            border-bottom: none;
+        }
+
+        .task:hover {
+            background-color: #1c2128;
+            border-radius: 4px;
+        }
+
+        .task input[type="checkbox"] {
+            margin-top: 5px;
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--completed-color);
+        }
+
+        .task label {
+            cursor: pointer;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+
+        .task.completed label {
+            text-decoration: line-through;
+            color: var(--completed-text);
+        }
+
+        .day-tag {
+            display: inline-block;
+            background-color: #21262d;
+            color: #8b949e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .task.completed .day-tag {
+            background-color: #1a3a1e;
+            color: #3fb950;
+        }
+
+        .reset-btn {
+            background-color: transparent;
+            color: #f85149;
+            border: 1px solid #f85149;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        .reset-btn:hover {
+            background-color: #f85149;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            body {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Roadmap <span>Full Stack</span> (180 Días)</h1>
+        <p style="color: #8b949e; font-size: 0.9rem;">Haz clic en los módulos para colapsarlos. Tu progreso se guarda automáticamente en este navegador.</p>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0%</div>
+    </div>
+
+    <div id="roadmapContainer">
+        <!-- Aquí se inyectará el contenido con JS -->
+    </div>
+
+    <button class="reset-btn" id="resetBtn">Reiniciar Progreso</button>
+
+    <script>
+        // Datos extraídos de las imágenes
+        const roadmapData = [
+            {
+                title: "📅 HTML (Días 1-10)",
+                tasks: [
+                    { day: "Día 1", text: "Intro to Web + HTML basics" },
+                    { day: "Día 2", text: "Tags (heading, p, links, images)" },
+                    { day: "Día 3", text: "Lists + tables" },
+                    { day: "Día 4", text: "Forms (input, button, label)" },
+                    { day: "Día 5", text: "Semantic HTML" },
+                    { day: "Día 6", text: "SEO basics" },
+                    { day: "Día 7", text: "Accessibility" },
+                    { day: "Días 8-9", text: "Practice pages" },
+                    { day: "Día 10", text: "✅ Project: Portfolio (HTML only)" }
+                ]
+            },
+            {
+                title: "🎨 CSS (Días 11-25)",
+                tasks: [
+                    { day: "Día 11", text: "CSS basics (selectors, colors)" },
+                    { day: "Día 12", text: "Box model" },
+                    { day: "Día 13", text: "Flexbox" },
+                    { day: "Día 14", text: "Grid" },
+                    { day: "Día 15", text: "Typography + spacing" },
+                    { day: "Día 16", text: "Positioning" },
+                    { day: "Día 17", text: "Responsive design" },
+                    { day: "Día 18", text: "Media queries" },
+                    { day: "Día 19", text: "Animations" },
+                    { day: "Día 20", text: "Transitions" },
+                    { day: "Día 21", text: "Pseudo classes" },
+                    { day: "Día 22", text: "CSS variables" },
+                    { day: "Días 23-24", text: "Practice layouts" },
+                    { day: "Día 25", text: "✅ Project: Responsive Website" }
+                ]
+            },
+            {
+                title: "⚡ JavaScript Basics (Días 26-37)",
+                tasks: [
+                    { day: "Día 26", text: "JS intro + variables" },
+                    { day: "Día 27", text: "Data types" },
+                    { day: "Día 28", text: "Operators" },
+                    { day: "Día 29", text: "Conditionals" },
+                    { day: "Día 30", text: "Loops" },
+                    { day: "Día 31", text: "Functions" },
+                    { day: "Día 32", text: "Arrays" },
+                    { day: "Día 33", text: "Objects" },
+                    { day: "Día 34", text: "DOM basics" },
+                    { day: "Día 35", text: "Events" },
+                    { day: "Día 36", text: "DOM manipulation" },
+                    { day: "Día 37", text: "Local storage" }
+                ]
+            },
+            {
+                title: "📌 Días 38-45 (Practice Problems)",
+                tasks: [
+                    { day: "Días 38-44", text: "Solve 5-10 problems daily (LeetCode/CodeWars)" },
+                    { day: "Días 38-44", text: "Practice arrays & objects" },
+                    { day: "Días 38-44", text: "Work on loops & functions" },
+                    { day: "Día 45", text: "✅ Project: To-Do App" }
+                ]
+            },
+            {
+                title: "🔥 Advanced JS (Días 46-55)",
+                tasks: [
+                    { day: "Día 46", text: "ES6 (let, const, arrow fn)" },
+                    { day: "Día 47", text: "Destructuring" },
+                    { day: "Día 48", text: "Spread/rest" },
+                    { day: "Día 49", text: "Promises" },
+                    { day: "Día 50", text: "Async/Await" },
+                    { day: "Día 51", text: "Fetch API" },
+                    { day: "Día 52", text: "Error handling" },
+                    { day: "Día 53", text: "Closures" },
+                    { day: "Día 54", text: "Hoisting" },
+                    { day: "Día 55", text: "Event delegation" }
+                ]
+            },
+            {
+                title: "📌 Días 56-65 (Practice + Mini Apps)",
+                tasks: [
+                    { day: "Días 56-64", text: "Build small apps daily (Counter, Calculator, Quiz, Digital Clock)" },
+                    { day: "Día 65", text: "✅ Project: Weather App (API)" }
+                ]
+            },
+            {
+                title: "🛠️ Tools + Git (Días 66-70)",
+                tasks: [
+                    { day: "Día 66", text: "Git basics" },
+                    { day: "Día 67", text: "GitHub workflow" },
+                    { day: "Día 68", text: "VS Code mastery" },
+                    { day: "Día 69", text: "NPM basics" },
+                    { day: "Día 70", text: "✅ Task: Push all projects to GitHub" }
+                ]
+            },
+            {
+                title: "⚛️ React JS (Días 71-83)",
+                tasks: [
+                    { day: "Día 71", text: "React intro" },
+                    { day: "Día 72", text: "JSX" },
+                    { day: "Día 73", text: "Components" },
+                    { day: "Día 74", text: "Props" },
+                    { day: "Día 75", text: "State" },
+                    { day: "Día 76", text: "Events" },
+                    { day: "Día 77", text: "Conditional rendering" },
+                    { day: "Día 78", text: "Lists + keys" },
+                    { day: "Día 79", text: "Forms" },
+                    { day: "Día 80", text: "useEffect" },
+                    { day: "Día 81", text: "API calls" },
+                    { day: "Día 82", text: "React Router" },
+                    { day: "Día 83", text: "Context API" }
+                ]
+            },
+            {
+                title: "📌 Días 84-100 (React Practice + Mini Apps)",
+                tasks: [
+                    { day: "Días 84-99", text: "Create reusable components" },
+                    { day: "Días 84-99", text: "Build UI with props & state" },
+                    { day: "Días 84-99", text: "Mini projects: Todo App, Weather App, Notes App" },
+                    { day: "Día 100", text: "✅ Project: Blog App / Dashboard" }
+                ]
+            },
+            {
+                title: "🛠️ Backend (Node + Express) (Días 101-110)",
+                tasks: [
+                    { day: "Día 101", text: "Node.js intro" },
+                    { day: "Día 102", text: "Modules + file system" },
+                    { day: "Día 103", text: "NPM + packages" },
+                    { day: "Día 104", text: "Express basics" },
+                    { day: "Día 105", text: "Routing" },
+                    { day: "Día 106", text: "Middleware" },
+                    { day: "Día 107", text: "REST APIs" },
+                    { day: "Día 108", text: "Postman testing" },
+                    { day: "Día 109", text: "Authentication (JWT)" },
+                    { day: "Día 110", text: "Password hashing" }
+                ]
+            },
+            {
+                title: "📌 Días 111-130 (Practice APIs)",
+                tasks: [
+                    { day: "Días 111-129", text: "Build APIs daily" },
+                    { day: "Días 111-129", text: "Practice CRUD operations" },
+                    { day: "Días 111-129", text: "Create: User Auth API, Blog API, Task Manager API" },
+                    { day: "Día 130", text: "✅ Project: REST API" }
+                ]
+            },
+            {
+                title: "🗄️ Database (MongoDB) (Días 131-136)",
+                tasks: [
+                    { day: "Día 131", text: "MongoDB intro" },
+                    { day: "Día 132", text: "CRUD operations" },
+                    { day: "Día 133", text: "Collections + documents" },
+                    { day: "Día 134", text: "Mongoose" },
+                    { day: "Día 135", text: "Schema design" },
+                    { day: "Día 136", text: "Relationships" }
+                ]
+            },
+            {
+                title: "📌 Días 137-150 (DB Integration)",
+                tasks: [
+                    { day: "Días 137-149", text: "Practice MongoDB queries" },
+                    { day: "Días 137-149", text: "Use Mongoose" },
+                    { day: "Días 137-149", text: "Perform CRUD with DB" },
+                    { day: "Días 137-149", text: "Build: User database system, Notes storage app" },
+                    { day: "Día 150", text: "✅ Project: CRUD App" }
+                ]
+            },
+            {
+                title: "🌐 Full Stack Integration (Días 151-155)",
+                tasks: [
+                    { day: "Día 151", text: "Connect frontend + backend" },
+                    { day: "Día 152", text: "API integration" },
+                    { day: "Día 153", text: "Authentication flow" },
+                    { day: "Día 154", text: "Protected routes" },
+                    { day: "Día 155", text: "State management" }
+                ]
+            },
+            {
+                title: "📌 Días 156-170 (Build Full App)",
+                tasks: [
+                    { day: "Días 156-169", text: "Combine frontend + backend" },
+                    { day: "Días 156-169", text: "Add authentication" },
+                    { day: "Días 156-169", text: "Create dashboard UI" },
+                    { day: "Días 156-169", text: "Example projects: E-commerce, SaaS dashboard, Social media" },
+                    { day: "Día 170", text: "✅ Project: MERN App" }
+                ]
+            },
+            {
+                title: "🚀 Deployment + Final (Días 171-180)",
+                tasks: [
+                    { day: "Día 171", text: "GitHub final setup" },
+                    { day: "Día 172", text: "Deployment (Frontend - Vercel)" },
+                    { day: "Día 173", text: "Deployment (Backend - Render)" },
+                    { day: "Día 174", text: "Environment variables" },
+                    { day: "Día 175", text: "Debugging" },
+                    { day: "Día 176", text: "Performance optimization" },
+                    { day: "Día 177", text: "SEO basics" },
+                    { day: "Día 178", text: "Portfolio building" },
+                    { day: "Día 179", text: "Final polishing" },
+                    { day: "Día 180", text: "✅ FINAL PROJECT LIVE 🚀" }
+                ]
+            }
+        ];
+
+        const container = document.getElementById('roadmapContainer');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // Generar un ID único para cada tarea basado en el índice
+        function getTaskId(moduleIndex, taskIndex) {
+            return `task-${moduleIndex}-${taskIndex}`;
+        }
+
+        // Renderizar la lista
+        function renderRoadmap() {
+            let html = '';
+            
+            roadmapData.forEach((module, mIndex) => {
+                // Generar ID para el módulo (para guardar si está colapsado)
+                const moduleId = `module-${mIndex}`;
+                const isCollapsed = localStorage.getItem(moduleId) === 'true';
+                
+                html += `
+                    <div class="module">
+                        <div class="module-header ${isCollapsed ? 'collapsed' : ''}" data-module-id="${moduleId}">
+                            <span>${module.title}</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="module-content ${isCollapsed ? 'collapsed' : ''}">
+                `;
+
+                module.tasks.forEach((task, tIndex) => {
+                    const taskId = getTaskId(mIndex, tIndex);
+                    const isCompleted = localStorage.getItem(taskId) === 'true';
+                    
+                    html += `
+                        <div class="task ${isCompleted ? 'completed' : ''}" data-task-id="${taskId}">
+                            <input type="checkbox" id="${taskId}" ${isCompleted ? 'checked' : ''}>
+                            <label for="${taskId}">
+                                <span class="day-tag">${task.day}</span>
+                                ${task.text}
+                            </label>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            updateProgress();
+            attachEventListeners();
+        }
+
+        // Actualizar la barra de progreso
+        function updateProgress() {
+            const totalTasks = document.querySelectorAll('.task').length;
+            const completedTasks = document.querySelectorAll('.task.completed').length;
+            
+            const percentage = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+            
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${percentage}%`;
+        }
+
+        // Manejar eventos
+        function attachEventListeners() {
+            // Checkboxes
+            document.querySelectorAll('.task input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', (e) => {
+                    const taskDiv = e.target.closest('.task');
+                    const taskId = taskDiv.dataset.taskId;
+                    
+                    if (e.target.checked) {
+                        taskDiv.classList.add('completed');
+                        localStorage.setItem(taskId, 'true');
+                    } else {
+                        taskDiv.classList.remove('completed');
+                        localStorage.removeItem(taskId);
+                    }
+                    updateProgress();
+                });
+            });
+
+            // Colapsar módulos
+            document.querySelectorAll('.module-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const moduleId = header.dataset.moduleId;
+                    const content = header.nextElementSibling;
+                    
+                    header.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                    
+                    // Guardar estado en localStorage
+                    const isCollapsed = header.classList.contains('collapsed');
+                    localStorage.setItem(moduleId, isCollapsed);
+                });
+            });
+        }
+
+        // Reiniciar progreso
+        resetBtn.addEventListener('click', () => {
+            if (confirm('¿Estás seguro de que quieres borrar todo tu progreso? Esta acción no se puede deshacer.')) {
+                localStorage.clear();
+                renderRoadmap();
+            }
+        });
+
+        // Inicializar
+        renderRoadmap();
+
+    </script>
+</body>
+</html>
