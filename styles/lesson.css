@@ -1,0 +1,121 @@
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.breadcrumb a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+}
+
+.section-card ul, 
+.section-card ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+.section-card li {
+    margin-bottom: 6px;
+}
+
+.section-card h3 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    font-size: 1.15rem;
+}
+
+.section-card h4 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.section-card code {
+    background-color: var(--nav-hover);
+    color: var(--accent-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+}
+
+.section-card pre {
+    background-color: var(--nav-hover);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+.section-card pre code {
+    background: none;
+    color: var(--text-color);
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.complete-btn {
+    display: inline-block;
+    background-color: var(--acent-color);
+    color: #0d1117;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.complete-btn:hover {
+    background-color: #238636;
+    color: #fff;
+}
+
+.lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.lesson-nav a {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 14px 18px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.lesson-nav a:hover {
+    background-color: var(--nav-hover);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.lesson-nav-prev {
+    text-align: left;
+}
+
+.lesson-nav-vext {
+    text-align: right;
+}

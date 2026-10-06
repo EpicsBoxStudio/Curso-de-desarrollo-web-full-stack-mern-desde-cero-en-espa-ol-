@@ -6,6 +6,7 @@
     <meta name="author" content="Lynariel">
     <title>Día 1: Introducción a la web - Curso de desarrollo web Full Stack</title>
     <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/lesson.css">
 </head>
 <body>
     <header class="page-header">
@@ -14,8 +15,80 @@
     </header>
 
     <nav class="menu">
-        
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../temas/html.html">Módulo HTML</a></li>
+            <li><a href="../roadmap.html">Roadmap</a></li>
+            <li><a href="../glosario/glosario.html">Glosario</a></li>
+        </ul>
     </nav>
+
+    <main class="main">
+
+        <nav class="breadcrumb" aria-label="Ruta de navegacion">
+            <a href="../index.html">Inicio</a>
+            <span>></span>
+            <a href="../temas/html.html">HTML</a>
+            <span>></span>
+            <span>Día 1</span>
+        </nav>
+
+        <section class="section-card">
+            <h2>&#128204; Objetivos del día</h2>
+            <ul class="objetive-list">
+                <li>Entender cómo funciona Internet (modelo cliente - servidor)</li>
+                <li>Conocer que es HTTP y HTTPS</li>
+                <li>Aprender la estructura básica de un documento HTML</li>
+                <li>Escribir tu primera pagina web</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>&#128214; Contenido</h2>
+            <p>
+                Entender cómo funciona <em>Internet</em> es clave, porque tu código no vive aislado: se ejecuta dentro 
+                 de un sistema comunicación global. La idea fundamental es que <strong>Internet es la infraestructura de red</strong>
+                 (cables, routers, protocolos), mientras que <strong>la Web es un servicio que corre sobre esa infraestructura</strong>
+                 (páginas, sitios, aplicaciones).
+            </p>
+            <h3>1. ¿Cómo funciona Internet?</h3>
+            <p>
+                Cuando escribes una dirección en el navegador (por ejemplo <code>www.ejemplo.com</code>), tu equipo actua como <a href="../glosario/glosario.html#cliente">cliente</a>
+                y envía una petición a un <a href="../glosario/glosario.html#servidor">servidor</a>. El servidor responde con los archivos necesarios (HTML, CSS, Javascript, imagenes, etc.)
+                y el navegador los interpreta para mostrar la página.
+            </p>
+            
+            <p>
+                Este intercambio se realiza mediante el <a href="../glosario/glosario.html#protocolo">protocolo</a> 
+                <a href="../glosario/glosario.html#http">HTTP</a> (o <a href="../glosario/glosario.html#https">HTTPS</a> cuando
+                está cifrado). Es el lenguaje común que permite que cliente y servidor se entiendan.
+            </p>
+            <p>
+                Para encontrar un <a href="../glosario/glosario.html#servidor">servidor</a> a partir del nombre como <code>http://google.com</code>, 
+                el navegador consulta el <a href="../glosario/glosario.html#dns">DNS</a>, que traduce ese nombre a una 
+                <a href="../glosario/glosario.html#ip">dirección IP</a>
+            </p>
+            <h3>2. ¿Qué es HTML?</h3>
+            <p>
+                HTML (<em>HyperText Markup Language</em>) es el lenguaje de marcado que da <strong>estructura</strong> 
+                al contenido de una página web. No es un lenguaje de programación: es un conjunto de etiquetas que indican 
+                al navegador que es cada cosa (un título, un párrafo, una imagen...).
+            </p>
+        </section>
+
+        <section class="section-card roadmap-progress">
+            <h2>&#128640; Progreso del roadmap</h2>
+            <p>
+                Cuando termines esta lección márcala como completada. Se reflejará automáticamente
+                en el <a href="../roadmap.html">Roadmap de 180 días</a>
+            </p>
+            <button class="complete-btn" id="completeBtn" data-task-id="task-0-0">
+                &#9989; Marcar Día como completado
+            </button>
+        </section>
+    </main>
+    
     <script src="../scripts/themes.js"></script>
+    <script src="../scripts/progress-btn.js"></script>
 </body>
 </html>
