@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lynariel">
-    <title>Curso de desarrollo web</title>
+    <title>Curso de desarrollo web Full Stack</title>
     <link rel="stylesheet" href="styles/layout.css">
+    <script src="scripts/themes.js" defer></script>
 </head>
 <body>
     <header class="page-header">
@@ -22,7 +23,7 @@
         </ul>
     </nav>
     <main class="main">
-        <section id="intro">
+        <section class="section-card" id="intro">
             <h2>Intoducción al curso</h2>
             <p>
                 Bienvenidos al <strong>Curso de programación web de cero a fullstack</strong>, un viaje intensivo de 
@@ -51,7 +52,138 @@
                 de cero a full stack.
             </p>
         </section>
+
+      <!-- ============================
+             TEMAS DEL CURSO
+             ============================ -->
+             <section class="section-card" id="temas">
+                <h2>Temas del curso</h2>
+                <p>
+                    Estos son los módulos que iremos recorriendo a lo largo de los 180 días. Haz clic en cada
+                    uno para acceder a su contenido completo.
+                </p>
+    
+                <div class="topics-grid">
+    
+                    <a class="topic-card" href="temas/html.html">
+                        <span class="topic-icon">&#128197;</span>
+                        <span class="topic-title">HTML</span>
+                        <span class="topic-days">Días 1-10</span>
+                        <span class="topic-desc">Estructura, etiquetas, formularios, semántica, SEO y accesibilidad.</span>
+                    </a>
+    
+                    <a class="topic-card" href="temas/css.html">
+                        <span class="topic-icon">&#127912;</span>
+                        <span class="topic-title">CSS</span>
+                        <span class="topic-days">Días 11-25</span>
+                        <span class="topic-desc">Selectores, box model, Flexbox, Grid, responsive y animaciones.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#9889;</span>
+                        <span class="topic-title">JavaScript Básico</span>
+                        <span class="topic-days">Días 26-37</span>
+                        <span class="topic-desc">Variables, tipos, funciones, arrays, objetos, DOM y eventos.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">Práctica JS</span>
+                        <span class="topic-days">Días 38-45</span>
+                        <span class="topic-desc">Problemas de lógica y proyecto To-Do App.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128293;</span>
+                        <span class="topic-title">JavaScript Avanzado</span>
+                        <span class="topic-days">Días 46-55</span>
+                        <span class="topic-desc">ES6+, promesas, async/await, fetch, closures y más.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">Mini Apps JS</span>
+                        <span class="topic-days">Días 56-65</span>
+                        <span class="topic-desc">Contador, calculadora, quiz, reloj y Weather App con API.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128736;&#65039;</span>
+                        <span class="topic-title">Git + Herramientas</span>
+                        <span class="topic-days">Días 66-70</span>
+                        <span class="topic-desc">Git, GitHub, VS Code, NPM y publicación de proyectos.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#9883;&#65039;</span>
+                        <span class="topic-title">React JS</span>
+                        <span class="topic-days">Días 71-83</span>
+                        <span class="topic-desc">JSX, componentes, props, state, hooks y React Router.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">Práctica React</span>
+                        <span class="topic-days">Días 84-100</span>
+                        <span class="topic-desc">Componentes reutilizables, mini apps y proyecto Blog/Dashboard.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128736;&#65039;</span>
+                        <span class="topic-title">Backend (Node + Express)</span>
+                        <span class="topic-days">Días 101-110</span>
+                        <span class="topic-desc">Node.js, Express, routing, middleware, JWT y hashing.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">Práctica APIs</span>
+                        <span class="topic-days">Días 111-130</span>
+                        <span class="topic-desc">CRUD, autenticación y construcción de APIs REST.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128451;&#65039;</span>
+                        <span class="topic-title">MongoDB</span>
+                        <span class="topic-days">Días 131-136</span>
+                        <span class="topic-desc">CRUD, colecciones, Mongoose, schemas y relaciones.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">Integración DB</span>
+                        <span class="topic-days">Días 137-150</span>
+                        <span class="topic-desc">Consultas avanzadas, aggregation y proyecto CRUD.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#127760;</span>
+                        <span class="topic-title">Integración Full Stack</span>
+                        <span class="topic-days">Días 151-155</span>
+                        <span class="topic-desc">Conectar frontend + backend, autenticación y rutas protegidas.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128204;</span>
+                        <span class="topic-title">App Full Stack</span>
+                        <span class="topic-days">Días 156-170</span>
+                        <span class="topic-desc">Construcción de app MERN completa con dashboard.</span>
+                    </a>
+    
+                    <a class="topic-card" href="#">
+                        <span class="topic-icon">&#128640;</span>
+                        <span class="topic-title">Despliegue + Final</span>
+                        <span class="topic-days">Días 171-180</span>
+                        <span class="topic-desc">Vercel, Render, variables de entorno y proyecto final en vivo.</span>
+                    </a>
+    
+                </div>
+            </section>
+
+            <section class="section-card" id="contactos">
+               <a href="github.com/EpicsBoxStudio/"> GitHub<img src="assets/GitHub-Full-Logo-with-Text-81456.png" alt="Logo GitHub" width="150"></a>
+            </section>
+
     </main>
-    <script src="scripts/themes.js"></script>
 </body>
 </html>
