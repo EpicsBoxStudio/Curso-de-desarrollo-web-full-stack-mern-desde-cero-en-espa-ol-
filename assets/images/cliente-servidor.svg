@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 800 400"
+     role="img"
+     aria-labelledby="tituloClienteServidor descClienteServidor"
+     preserveAspectRatio="xMidYMid meet">
+
+    <title id="tituloClienteServidor">Modelo cliente-servidor</title>
+    <desc id="descClienteServidor">
+        Diagrama que muestra a un cliente (navegador) enviando una petición HTTP
+        a un servidor, que responde con los archivos de la página web.
+    </desc>
+
+    <defs>
+        <!-- Flechas para las líneas de conexión -->
+        <marker id="arrowRight" markerWidth="10" markerHeight="10"
+                refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L10,5 L0,10 z" fill="#f0db4f"/>
+        </marker>
+        <marker id="arrowLeft" markerWidth="10" markerHeight="10"
+                refX="1" refY="5" orient="auto" markerUnits="strokeWidth">
+            <path d="M10,0 L0,5 L10,10 z" fill="#58a6ff"/>
+        </marker>
+    </defs>
+
+    <!-- Fondo transparente (hereda el del contenedor) -->
+
+    <!-- ===================== CLIENTE ===================== -->
+    <g>
+        <!-- Monitor del cliente -->
+        <rect x="60" y="120" width="220" height="140" rx="10"
+              fill="#161b22" stroke="#f0db4f" stroke-width="3"/>
+        <!-- Pantalla interna -->
+        <rect x="80" y="140" width="180" height="90" rx="4"
+              fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <!-- Barra del navegador -->
+        <rect x="80" y="140" width="180" height="14" rx="4"
+              fill="#21262d"/>
+        <circle cx="90" cy="147" r="3" fill="#f85149"/>
+        <circle cx="100" cy="147" r="3" fill="#f0db4f"/>
+        <circle cx="110" cy="147" r="3" fill="#3fb950"/>
+        <!-- Contenido simulado -->
+        <rect x="90" y="165" width="100" height="6" rx="2" fill="#30363d"/>
+        <rect x="90" y="178" width="150" height="6" rx="2" fill="#30363d"/>
+        <rect x="90" y="191" width="120" height="6" rx="2" fill="#30363d"/>
+        <!-- Base del monitor -->
+        <rect x="150" y="260" width="40" height="10" rx="3" fill="#30363d"/>
+        <rect x="120" y="270" width="100" height="8" rx="3" fill="#30363d"/>
+        <!-- Etiqueta -->
+        <text x="170" y="310" text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="18" font-weight="bold" fill="#f0db4f">
+            Cliente
+        </text>
+        <text x="170" y="332" text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="13" fill="#c9d1d9">
+            (Navegador web)
+        </text>
+    </g>
+
+    <!-- ===================== LÍNEAS DE CONEXIÓN ===================== -->
+    <!-- Petición (cliente → servidor) -->
+    <line x1="290" y1="170" x2="500" y2="170"
+          stroke="#f0db4f" stroke-width="3"
+          marker-end="url(#arrowRight)" stroke-dasharray="8 5"/>
+    <text x="395" y="158" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="14" font-weight="bold" fill="#f0db4f">
+        Petición HTTP
+    </text>
+    <text x="395" y="200" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="12" fill="#c9d1d9">
+        GET /index.html
+    </text>
+
+    <!-- Respuesta (servidor → cliente) -->
+    <line x1="500" y1="230" x2="290" y2="230"
+          stroke="#58a6ff" stroke-width="3"
+          marker-end="url(#arrowLeft)" stroke-dasharray="8 5"/>
+    <text x="395" y="250" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="14" font-weight="bold" fill="#58a6ff">
+        Respuesta HTTP
+    </text>
+    <text x="395" y="268" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="12" fill="#c9d1d9">
+        200 OK + HTML
+    </text>
+
+    <!-- ===================== SERVIDOR ===================== -->
+    <g>
+        <!-- Rack del servidor -->
+        <rect x="520" y="100" width="220" height="200" rx="10"
+              fill="#161b22" stroke="#58a6ff" stroke-width="3"/>
+
+        <!-- Unidades del rack -->
+        <rect x="540" y="120" width="180" height="40" rx="5"
+              fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <circle cx="560" cy="140" r="5" fill="#3fb950"/>
+        <rect x="575" y="134" width="80" height="5" rx="2" fill="#30363d"/>
+        <rect x="575" y="144" width="120" height="5" rx="2" fill="#30363d"/>
+
+        <rect x="540" y="170" width="180" height="40" rx="5"
+              fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <circle cx="560" cy="190" r="5" fill="#3fb950"/>
+        <rect x="575" y="184" width="100" height="5" rx="2" fill="#30363d"/>
+        <rect x="575" y="194" width="60" height="5" rx="2" fill="#30363d"/>
+
+        <rect x="540" y="220" width="180" height="40" rx="5"
+              fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <circle cx="560" cy="240" r="5" fill="#f0db4f"/>
+        <rect x="575" y="234" width="70" height="5" rx="2" fill="#30363d"/>
+        <rect x="575" y="244" width="130" height="5" rx="2" fill="#30363d"/>
+
+        <!-- Etiqueta -->
+        <text x="630" y="330" text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="18" font-weight="bold" fill="#58a6ff">
+            Servidor
+        </text>
+        <text x="630" y="352" text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="13" fill="#c9d1d9">
+            (Base de datos, lógica, archivos)
+        </text>
+    </g>
+
+    <!-- ===================== TÍTULO SUPERIOR ===================== -->
+    <text x="400" y="50" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="22" font-weight="bold" fill="#c9d1d9">
+        Modelo Cliente - Servidor
+    </text>
+    <text x="400" y="75" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="13" fill="#8b949e">
+        El navegador solicita recursos y el servidor los entrega
+    </text>
+
+</svg>

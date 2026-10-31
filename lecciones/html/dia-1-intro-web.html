@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lynariel">
     <title>Día 1: Introducción a la web - Curso de desarrollo web Full Stack</title>
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/lesson.css">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/lesson.css">
 </head>
 <body>
     <header class="page-header">
@@ -16,19 +16,19 @@
 
     <nav class="menu">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="../temas/html.html">Módulo HTML</a></li>
-            <li><a href="../roadmap.html">Roadmap</a></li>
-            <li><a href="../glosario/glosario.html">Glosario</a></li>
+            <li><a href="../../index.html">Inicio</a></li>
+            <li><a href="../../temas/html.html">Módulo HTML</a></li>
+            <li><a href="../../roadmap.html">Roadmap</a></li>
+            <li><a href="../../glosario/glosario.html">Glosario</a></li>
         </ul>
     </nav>
 
     <main class="main">
 
         <nav class="breadcrumb" aria-label="Ruta de navegacion">
-            <a href="../index.html">Inicio</a>
+            <a href="../../index.html">Inicio</a>
             <span>></span>
-            <a href="../temas/html.html">HTML</a>
+            <a href="../../temas/html.html">HTML</a>
             <span>></span>
             <span>Día 1</span>
         </nav>
@@ -54,7 +54,7 @@
             <h3>1. ¿Cómo funciona Internet?</h3>
             <p>
                 Cuando escribes una dirección en el navegador (por ejemplo <code>www.ejemplo.com</code>), tu equipo actua como <a href="../glosario/glosario.html#cliente">cliente</a>
-                y envía una petición a un <a href="../glosario/glosario.html#servidor">servidor</a>. El servidor responde con los archivos necesarios (HTML, CSS, Javascript, imagenes, etc.)
+                y envía una petición a un <a href="../../glosario/glosario.html#servidor">servidor</a>. El servidor responde con los archivos necesarios (HTML, CSS, Javascript, imagenes, etc.)
                 y el navegador los interpreta para mostrar la página.
             </p>
             
@@ -66,14 +66,172 @@
             <p>
                 Para encontrar un <a href="../../glosario/glosario.html#servidor">servidor</a> a partir del nombre como <code>http://google.com</code>, 
                 el navegador consulta el <a href="../../glosario/glosario.html#dns">DNS</a>, que traduce ese nombre a una 
-                <a href=".../../glosario/glosario.html#ip">dirección IP</a>
+                <a href="../../glosario/glosario.html#ip">dirección IP</a>
             </p>
-            <h3>2. ¿Qué es HTML?</h3>
+            <h3>2. Módelo cliente-servidor</h3>
+            <p>
+                Es una arquitectura de red donde las tareas se reparten entre <strong>proveedores de recursos o servicios(servidores)</strong>
+                 y <strong>solicitantes de los mismos (clientes)</strong>. Es el modelo fundamental sobre el que funciona internet.
+            </p>
+            <h4>Cliente</h4>
+            <p>
+                Es el programa que <em>inicia</em> la comunicación y solicita un servicio.
+            </p>
+            <p>
+                Ejemplos de estos pueden ser:
+                <ul>
+                    <li>Un navegador(Chrome, Firefox, Safari, etc.)</li>
+                    <li>Una app móvil</li>
+                    <li>Un cliente de correo</li>
+                </ul>
+            </p>
+            <p>
+                Como caracteristicas principales se encrga de iniciar peticiones, espera respuesta, no comparte sus recursos directamente, 
+                suelen ser multiples (muchos clientes a la vez).
+            </p>
+            <h4>Servidor</h4>
+            <p>
+                Es el programa que <strong>escucha</strong>, procesa peticiones y entrega respuestas.
+            </p>
+            <p>
+                Ejemplos de servidores pueden ser: 
+                <ul>
+                    <li>los servidores web (Apache, Nginx)</li>
+                    <li>servidores de bases de datos</li>
+                    <li>servidores de correo</li>
+                </ul>
+            </p>
+            <p>
+                Estos tienen como caracteristica que estan siempre en espera, ofrecen recursos/servicios, atienden a muchos clientes, suelen 
+                tener <a href="../../glosario/glosario.html#ip">IP</a> y puerto fijo.
+            </p>
+            <img src="../../assets/images/cliente-servidor.svg" alt="Modelo de cliente-servidor">
+            <h4>Funcionamiento del ciclo básico</h4>
+                <ol>
+                    <li>El <a href="../../glosario/glosario.html#cliente">cliente</a> envía una petición (request) al <a href="../../glosario/glosario.html#servidor">servidor</a></li>
+                    <li>El <a href="../../glosario/glosario.html#servidor">servidor</a> recibe, prosesa y busca el recurso solicitado</li>
+                    <li>El <a href="../../glosario/glosario.html#servidor">servidor</a> devuelve una <strong>respuesta</strong> (respose) al <a href="../../glosario/glosario.html#cliente">cliente</a></li>
+                    <li>El <a href="../../glosario/glosario.html#cliente">cliente</a> interpreta y muestra el resultado</li>
+                </ol>
+                <h4>Ejemplo de visitar una web</h4>
+                <ol>
+                    <li>Escribes <code>www.ejemplo.com</code> en el navegador.</li>
+                    <li>El navegador(<a href="../../glosario/glosario.html#cliente">cliente</a>) resuelve el dominio vía 
+                    <a href="../../glosario/glosario.html#dns">DNS</a> y obtiene la <a href="../../glosario/glosario.html#ip">dirección IP</a> del <a href="../../glosario/glosario.html#servidor">servidor</a>.</li>
+                    <li>Envía la peticiión <a href="../../glosario/glosario.html#http">HTTP</a>: <code>GET /index.html.</code></li>
+                    <li>El <a href="../../glosario/glosario.html#servidor">servidor</a>web recibe la peticiión, localiza el archivo y responde con el contenido + código de estado(ej: <code>200 OK.</code></li>
+                    <li>El navegador recibe y renderiza la página.</li>
+                </ol>
+                <h4>Ventajas del módelo</h4>
+                <ul>
+                    <li><strong>Centralización del control:</strong> los datos y la seguridad se gestionan en el servidor.</li>
+                    <li><strong>Escalabilidad:</strong> se pueden añadir más clientes o más servidores según la demanda.</li>
+                    <li><strong>Mantenimiento sencillo:</strong> se actualiza el servidor sin tocar los clientes.</li>
+                    <li><strong>Seguridad:</strong> el cliente no accede directamente a los datos; todo pasa por el servidor.</li>
+                </ul>
+                <h4>Desventajas/retos</h4>
+                <ul>
+                    <li><strong>Punto único de falllo:</strong> si el seervidor cae, los clientes no pueden acceder.</li>
+                    <li><strong>Cuello de botella:</strong> muchas peticiones simultáneas pueden saturar al servidor.</li>
+                    <li><strong>Dependencia de la red:</strong> requiere conectividad constante.</li>
+                </ul>
+            <h3>3. ¿Qué es HTML?</h3>
             <p>
                 HTML (<em>HyperText Markup Language</em>) es el lenguaje de marcado que da <strong>estructura</strong> 
                 al contenido de una página web. No es un lenguaje de programación: es un conjunto de etiquetas que indican 
                 al navegador que es cada cosa (un título, un párrafo, una imagen...).
             </p>
+            <h3>3. Estructura básica de un documento HTML</h3>
+            <p>
+                Las instrucciones están encerradas entre los caracteres: &lt; y &gt;.
+            <p>
+                Muchos elementos HTML requieren una marca de comienzo y otra de finalización. Todo aquello que está fuera de las marcas del lenguaje se imprime en la pantalla (dentro del navegador).
+            </p>
+            </p>
+            <p>
+                Todo documento HTML sige esta estructura mínima.
+            </p>
+            <pre><code>
+&lt;!DOTYPE html&gt;
+ &lt;html lang ="es"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+         &lt;title&gt;Titulo de la página&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Estructura de la página
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p>
+                Una página HTML es un archivo que generalmente tiene como extensión los caracteres html. Por ejemplo podemos llamar a nuestra primer página con el nombre: pagina1.html
+            </p>
+            <p>
+                Para segir este curso se recomienda instalar un editor de texto como <a href="https://code.visualstudio.com/download">Visial Studio Code(VSCode)</a> o 
+                <a href="https://notepad-plus-plus.org/download/v7.5.4.html">Notepad++</a>
+            </p>
+            <p>
+                Escribe el código y guardalo con un nombre como pagina1.html y haz doble click sobre el para que se abra en el navegador.
+            </p>
+            <h4>Explicación:</h4>
+            <ul>
+                <li><code>&lt;!DOTYPE html&gt;</code>: Indica que el documento es HTML5</li>
+                <li><code>&lt;html&gt;</code>: raíz del documento. <code>lang ="es"</code> indica el idioma.</li>
+                <li><code>&lt;head&gt;</code>: contiene metadatos (no se ve en la página).</li>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code>: asegura que los caracteres especiales se vean bien.</li>
+                <li><code>&lt;title&gt;</code>: titulo de la página, aparece en la pestaña del navegador.</li>
+                <li><code>&lt;body&gt;</code>: todo el contenidi visible de la página.</li>
+            </ul>
+
+            <h4>Ejemplo práctico</h4>
+            <pre><code>
+&lt;!DOTYPE html&gt;
+&lt;html lang ="es"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Titulo de la página&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hola Mundo!&lt;/h1&gt;
+        &lt;p&gt;Hola Mundo!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                            </code></pre>
+            <p>
+                Crea un archivo pagina1.html y copia el contenido.
+            </p>
+            <p>
+                Ábrelo en el navegador haciendo doble click sobre el. Déverias ver el titulo y el párrafo.
+            </p>
+
+            <img src="../../assets/images/navegador.png" alt="Resultado de la pagina">
+            <p>
+
+            </p>
+
+        </section>
+        <section class="section-card">
+            <h2>✍ Ejercicios</h2>
+            <p>
+                Modifica el ejemplo anterior para que incluya:
+            </p>
+            <ol>
+                <li>Un título <code>&lt;h1&gt;</code> con tu nombre.</li>
+                <li>Un párrafo <code>&lt;p&gt;</code> contando por que quieres aprender desarrollo web.</li>
+                <li>Un segundo título <code>&lt;h2&gt;</code> con la palabra "Objetivos".</li>
+                <li>Una lista <code>&lt;ul&gt;</code> con al menos tres objetivos personales.</li>
+            </ol>
+        </section>
+
+        <section class="section-card">
+            <h2>📌 Resumen</h2>
+            <ul>
+                <li>Internet funciona con un modelo cliente-servidor.</li>
+                <li>HTTP/HTTPS es el protocolo de comunicación.</li>
+                <li>HTML da la estructura del contenido.</li>
+                <li>Todo documento tiene &lt;head&gt; y &lt;body&gt;</li>
+            </ul>
         </section>
 
         <section class="section-card roadmap-progress">

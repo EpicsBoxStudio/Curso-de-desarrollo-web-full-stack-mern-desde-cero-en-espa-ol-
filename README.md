@@ -92,7 +92,7 @@ curso-fullstack/
 
 ---
 
-## 🧭 Roadmap del curso
+## ⚙ Roadmap del curso
 
 El curso está dividido en **16 módulos** que suman 180 días:
 
@@ -232,7 +232,7 @@ Al hacer clic, el glosario hace scroll al término y lo resalta brevemente.
 
 ---
 
-## 🧩 Cómo añadir una nueva lección
+## 🗂 Cómo añadir una nueva lección
 
 1. Copia `docs/plantilla-leccion.md` o una lección existente.
 2. Renómbrala con el formato `dia-XX-nombre.html`.
